@@ -30,7 +30,7 @@
 
   <groupId>org.apache.maven.plugins</groupId>
   <artifactId>maven-scm-plugin</artifactId>
-  <version>1.1</version>
+  <version>1.1.CO.1-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>Maven SCM Plugin</name>
@@ -39,13 +39,6 @@
   <prerequisites>
     <maven>2.0.6</maven>
   </prerequisites>
-
-  <distributionManagement>
-    <site>
-      <id>apache.website</id>
-      <url>scp://people.apache.org/www/maven.apache.org/scm/maven-scm-plugin</url>
-    </site>
-  </distributionManagement>
 
   <dependencies>
     <dependency>
@@ -66,26 +59,26 @@
     <dependency>
       <groupId>org.apache.maven.scm</groupId>
       <artifactId>maven-scm-manager-plexus</artifactId>
-      <version>1.1</version>
+      <version>1.1.CO.1-SNAPSHOT</version>
     </dependency>
 
     <!-- providers declaration -->
     <dependency>
       <groupId>org.apache.maven.scm</groupId>
       <artifactId>maven-scm-providers-standard</artifactId>
-      <version>1.1</version>
+      <version>1.1.CO.1-SNAPSHOT</version>
       <type>pom</type>
     </dependency>
     <dependency>
       <groupId>org.apache.maven.scm</groupId>
       <artifactId>maven-scm-provider-local</artifactId>
-      <version>1.1</version>
+      <version>1.1.CO.1-SNAPSHOT</version>
     </dependency>
     <!-- This is used directly by the mojo -->
     <dependency>
       <groupId>org.apache.maven.scm</groupId>
       <artifactId>maven-scm-provider-svn-commons</artifactId>
-      <version>1.1</version>
+      <version>1.1.CO.1-SNAPSHOT</version>
     </dependency>
     <!-- end providers declaration -->
 
@@ -111,7 +104,7 @@
     <dependency>
       <groupId>org.apache.maven.scm</groupId>
       <artifactId>maven-scm-provider-svntest</artifactId>
-      <version>1.1</version>
+      <version>1.1.CO.1-SNAPSHOT</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -139,9 +132,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
           <version>2.0-beta-7</version>
-          <configuration>
-            <stagingSiteURL>scp://people.apache.org/www/maven.apache.org/scm/maven-scm-plugin-${project.version}</stagingSiteURL>
-          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -366,8 +356,18 @@
   </profiles>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/maven/scm/tags/maven-scm-1.1</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/maven/scm/tags/maven-scm-1.1</developerConnection>
-    <url>http://svn.apache.org/viewcvs.cgi/maven/scm/tags/maven-scm-1.1</url>
+        <connection>scm:git:git://github.com/johnhampton/maven-scm.git</connection>
+        <developerConnection>scm:git:git@github.com:johnhampton/maven-scm.git</developerConnection>
+        <url>http://github.com/johnhampton/maven-scm/tree/1.1.CO</url>
   </scm>
+    <distributionManagement>
+        <repository>
+            <id>internal</id>
+            <url>dav:http://dev.cleanoffer.com/archiva/repository/internal/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>dav:http://dev.cleanoffer.com/archiva/repository/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>    
 </project>
